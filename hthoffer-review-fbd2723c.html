@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 温和的入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fbe9d7 0%, #f3d9c1 60%, #ecd0b0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.6;
+      color: #3c2e24;
+    }
+    .card {
+      max-width: 850px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(3px);
+      background-color: #fffcf8;
+      border-radius: 40px 40px 32px 32px;
+      box-shadow: 0 18px 40px -12px rgba(120, 80, 50, 0.25), 0 6px 12px rgba(0, 0, 0, 0.04);
+      padding: 2.8rem 2.5rem;
+      transition: box-shadow 0.2s ease;
+    }
+    @media (max-width: 500px) {
+      body { padding: 1rem; }
+      .card { padding: 2rem 1.5rem; border-radius: 28px; }
+    }
+    .hero {
+      margin-bottom: 2rem;
+    }
+    .hero-short {
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      background: #efe3d4;
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      color: #4f3a29;
+      font-weight: 450;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #7d5f45, #b28b6c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .sub-line {
+      font-size: 1.2rem;
+      font-weight: 380;
+      color: #6a5542;
+      border-left: 4px solid #cfb294;
+      padding-left: 1rem;
+      margin: 1.2rem 0 1.8rem 0;
+    }
+    .desc {
+      color: #3e3229;
+      margin-bottom: 2.2rem;
+    }
+    .desc p {
+      margin-bottom: 1.1rem;
+    }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.8rem;
+      margin: 2.2rem 0 2.4rem 0;
+      padding: 0.4rem 0;
+    }
+    .feature-item {
+      flex: 1 1 180px;
+      background: rgba(240, 224, 207, 0.5);
+      border-radius: 28px;
+      padding: 1rem 1.3rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 240, 225, 0.6);
+      backdrop-filter: blur(2px);
+      transition: background 0.2s;
+    }
+    .feature-item:hover {
+      background: rgba(235, 211, 187, 0.6);
+    }
+    .feature-item h3 {
+      font-size: 1rem;
+      font-weight: 540;
+      color: #553e2b;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.01em;
+    }
+    .feature-item p {
+      font-size: 0.9rem;
+      color: #5d4b3a;
+      opacity: 0.9;
+    }
+    .scenario-note {
+      background: #f5ede4;
+      padding: 1.4rem 1.8rem;
+      border-radius: 28px;
+      margin: 1.8rem 0 2.2rem 0;
+      border: 1px solid #ebd9c7;
+    }
+    .scenario-note p {
+      margin-bottom: 0.3rem;
+    }
+    .scenario-note .tag {
+      display: inline-block;
+      background: #dcc9b5;
+      color: #2f241b;
+      font-size: 0.8rem;
+      padding: 0.1rem 1.1rem;
+      border-radius: 40px;
+      font-weight: 450;
+      margin-right: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .link-btn {
+      display: inline-block;
+      background: #f0dccb;
+      color: #412f20;
+      text-decoration: none;
+      font-weight: 480;
+      padding: 0.6rem 2rem;
+      border-radius: 60px;
+      border: none;
+      box-shadow: 0 4px 8px rgba(120, 80, 40, 0.08);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      letter-spacing: 0.02em;
+      cursor: default;
+      margin: 0.2rem 0.1rem;
+    }
+    .link-btn:hover {
+      background: #e6ccb5;
+      box-shadow: 0 6px 14px rgba(140, 90, 55, 0.12);
+      transform: translateY(-2px);
+    }
+    .link-btn:active {
+      transform: scale(0.97);
+    }
+    .closing {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5d3c0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .closing p {
+      font-size: 0.95rem;
+      color: #4b3c2e;
+    }
+    .faq-like {
+      margin-top: 1.6rem;
+      background: #f2e6db;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+    }
+    .faq-like summary {
+      font-weight: 500;
+      color: #4f3926;
+      cursor: default;
+      padding: 0.2rem 0;
+      list-style: none;
+    }
+    .faq-like p {
+      margin-top: 0.4rem;
+      font-size: 0.92rem;
+      color: #4c3c2e;
+    }
+    .footer-note {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #a08874;
+      margin-top: 0.8rem;
+    }
+    a {
+      color: #7a5b40;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #d3bbaa;
+      transition: border 0.15s;
+    }
+    a:hover {
+      border-bottom: 1px solid #7a5b40;
+    }
+    .inline-link {
+      border-bottom: 1px dashed #cfb39a;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="hero">
+      <div class="hero-short">✦ 一处稳定的转角</div>
+      <h1>华体会 · 从入口开始</h1>
+      <div class="sub-line">不是每一次停靠都需要理由，但一个好入口会让人安心。</div>
+    </div>
+
+    <div class="desc">
+      <p>打开一个页面，像推开一扇熟悉的门。我们希望 <a href="https://hthoffer.com.cn" class="inline-link">华体会</a> 给人的第一印象不是喧嚣的指引，而是自然、干净的落脚点。没有闪烁的弹窗，也没有堆积的 banner——只有清晰的结构和温和的节奏。</p>
+      <p>这个站点并不试图用夸张的标语抓住你，它更在意一份持久的可用性。从导航到内容区域，每一块都经过梳理，减少认知负担，让浏览回归浏览本身。</p>
+    </div>
+
+    <!-- 特点列表 嵌入式卡片 -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>☕ 克制的信息</h3>
+        <p>段落不臃肿，重点自然浮现，留白本身就是指引。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🧭 一致的入口</h3>
+        <p>无论从哪个设备打开，页面布局始终稳定，不迷失。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🌱 温和的视觉</h3>
+        <p>低对比度的暖色基底，长时间阅读也不易疲劳。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📄 内容优先</h3>
+        <p>文字与卡片构成主体，没有分散注意力的装饰动画。</p>
+      </div>
+    </div>
+
+    <div class="scenario-note">
+      <p><span class="tag">场景</span> 新访客第一次打开页面，被清晰的板块引导；常回来的人则能快速找到熟悉的区块，不被打断。</p>
+      <p style="margin-top: 0.6rem;"><span class="tag">提示</span> 页面的所有链接都保持低调的圆角样式，没有突然的跳转感，每一个点击都在预期之内。</p>
+    </div>
+
+    <!-- 按钮感链接 —— 指向华体会 -->
+    <div style="margin: 1.2rem 0 0.2rem 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;">
+      <span style="font-size: 0.95rem; color: #4e3a2a;">了解更完整的结构，可直达</span>
+      <a href="https://hthoffer.com.cn" class="link-btn" style="display: inline-block;">华体会</a>
+      <span style="font-size: 0.9rem; color: #735d48;">· 没有多余的装饰</span>
+    </div>
+
+    <!-- FAQ摘要式段落 -->
+    <div class="faq-like">
+      <details>
+        <summary>📌 页面本身在说明什么？</summary>
+        <p>这个页面介绍的是 <a href="https://hthoffer.com.cn">华体会</a> 作为稳定入口的基本调性——内容清晰、路径直接、视觉友好。FAQ 摘要则补充了关于可用性的常见感受。</p>
+      </details>
+      <details style="margin-top: 0.8rem;">
+        <summary>📌 为什么强调“温和的入口”？</summary>
+        <p>大部分页面急于让用户点击，而这里更希望你先确认环境是否舒适。入口的意义不是催促，而是提供一个可以随时停留的地方。</p>
+      </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+      <p>好的页面从不喧哗，它只是在那里，等你需要时自然走向它。</p>
+      <p style="opacity: 0.75; font-style: italic;">如果你愿意，可以从 <a href="https://hthoffer.com.cn" style="border-bottom: 1px solid #cbb19b;">华体会</a> 开始，慢慢感受这份简洁。</p>
+      <div class="footer-note">— 页面叙述 · 2025</div>
+    </div>
+  </div>
+</body>
+</html>
